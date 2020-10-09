@@ -16,13 +16,17 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'admin'],function(){
-    Route::get('news/create','Admin\NewsCntroller@add');
+    Route::get('news/create','Admin\NewsController@add');
+    //課題4
+    Route::get('profile/create','Admin\ProfileController@add');
+    Route::get('profile/edit','Admin\ProfileController@edit');
 });
 
 //課題3
-Route::get('XXX','AAAController@bbb');
+Route::get('XXX','Admin\AAAController@bbb');
 
-//課題4
-Route::get('admin/profile/create','ProfileController@add');
-Route::get('admin/profile/edit','ProfileController@edit');
+//課題4(提出後、間違いを指摘された部分)
+//Route::get('admin/profile/create','Admin\ProfileController@add');
+//Route::get('admin/profile/edit','Admin\ProfileController@edit');
+
 
