@@ -33,9 +33,9 @@ class ProfileController extends Controller
     public function edit(Request $request){
         //NewaModelからデータを取得する
         $profile=Profile::find($request->id);
-        //if(empty($profile)){
-          //abort(404);
-        //}
+        if(empty($profile)){
+          abort(404);
+        }
         return view('admin.profile.edit',['profile_form'=>$profile]);
     }
 
