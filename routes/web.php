@@ -25,12 +25,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     //課題4
     Route::get('profile/create','Admin\ProfileController@add');
     Route::post('profile/create','Admin\ProfileController@create');
+    Route::get('profile', 'Admin\ProfileController@index');
     Route::get('profile/edit','Admin\ProfileController@edit');
     Route::post('profile/edit','Admin\ProfileController@update');
+    Route::get('profile/delete', 'Admin\ProfileController@delete');
 });
 
 //課題3
-Route::get('XXX','Admin\AAAController@bbb');
+//Route::get('XXX','Admin\AAAController@bbb');
 
 //課題4(提出後、間違いを指摘された部分)
 //Route::get('admin/profile/create','Admin\ProfileController@add');

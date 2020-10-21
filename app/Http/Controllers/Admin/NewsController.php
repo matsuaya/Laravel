@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\News;
+use Carbon\Carbon;
+use App\History;
 
 class NewsController extends Controller
 {
@@ -80,10 +82,17 @@ class NewsController extends Controller
     }
     
     unset($news_form['_token']);
+    unset($news_form['image']);
+    unset($news_form['remove']);
     //該当するデータを上書きして保存
     $news->fill($news_form)->save();
     
-    return redirect('admin/news');
+    $history=new History;
+    $history->news_id=$news->id;
+    $history->edited_at=Carbon::now();
+    $history->save();
+    
+    return redirect('admin/news/');
   }
   
   public function delete(Request $request){
