@@ -34,7 +34,7 @@
                                 <div class="title">
                                     {{ str_limit($post->name, 150) }}
                                 </div>
-                                <div class="body mt-3">
+                                <div class="body">
                                     {{ str_limit($post->introduction, 1500) }}
                                 </div>
                             </div>
